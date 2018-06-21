@@ -37,7 +37,7 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
   // This logic determines the outcome of the game (win/loss) as well as increments (or decrement) the appropriate game stat.
   if (userGuess === computerGuess){
     wins++;
-    alert("WOW YOU WON!! You must be Psychic, or just really lucky.")
+    alert("YOU WON!! You must be Psychic, or just really lucky. Probably just lucky.")
     resetGame();
     userGuess = " ";
     computerGuess = " ";
@@ -50,7 +50,7 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
     if (turns === 3){
       alert("Hmm... Maybe you aren't as good as you think you are. Only " + turns + " turns left. Choose wisely!");
     } else if (turns === 0){
-      alert("No turns left. YOU LOSE!! Click 'OK' and try again.");
+      alert("YOU LOSE!! No turns left. Click 'OK' to try again.");
       losses++;
       resetGame();
       userGuess = " ";
