@@ -6,31 +6,40 @@ var wins = 0;
 var losses = 0;
 var guesses = 0;
 
-// Determines which key was pressed.
-var userGuess = event.key;
-
 // Stores the user guess.
 var userGuessStore = [];
 
-// This function is run whenever the user presses a key.
+// FROM RPS#3  -- This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
 
-// Randomly chooses a choice from the options array. This is the Computer's guess.
-var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  // Determines which key was pressed.
+  var userGuess = event.key;
 
-// Function to store user guess into an array
-function allLetter(userGuess){
-   var letters = /^[A-Za-z]+$/;
-   if(userGuess.value.match(letters))
-     {
-      return true;
-     }
-   else
-     {
-     alert("You must enter a letter! Please try again.");
-     return false;
-     }
+  // Randomly chooses a choice from the options array. This is the Computer's guess.
+  var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+  // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+  if (userGuess === computerGuess){
+    wins++;
+    guesses++;
+    userGuessStore = userGuess;
+    } else {
+      losses++;
     }
 
-};
+    // Alert the userGuess and computerGuess
+    // alert("User guess: " + userGuess);
+    // alert("Computer guess: " + computerGuess);
+
+
+  var html =
+        "<p>You chose: " + userGuess + "</p>" +
+        "<p>The computer chose: " + computerGuess + "</p>" +
+        "<p>wins: " + wins + "</p>" +
+        "<p>losses: " + losses + "</p>" +
+        "<p>guesses: " + guesses + "</p>";
+
+    document.querySelector("#game2").innerHTML = html;
+
+  };
 
